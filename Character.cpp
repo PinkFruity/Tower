@@ -77,7 +77,8 @@ void Character::addHealth(int amount) {
          location->addItem(inventory[0]);
          inventory.erase(inventory.begin());
       }
-      std::cout << "Your vision fades. The world blurs. You wake to find yourself in the home room of the tower." << std::endl;
+      std::cout << "Your vision fades. The world blurs. You wake to find yourself in the home room of the tower as the words "
+         "\"Death is not always the end\" fade into silence." << std::endl;
       location = bigBoss->getMap()->getSpawnLocation();
       health = maxHP;
       return;
@@ -86,7 +87,7 @@ void Character::addHealth(int amount) {
       std::cout << "You feel close to death." << std::endl;
    else if (health > 25 && health + amount <= 25)
       std::cout << "You feel faint." << std::endl;
-   else if (health > 50 && health + amount <= 50)
+   else if (health > 60 && health + amount <= 60)
       std::cout << "You feel weak." << std::endl;
    (amount + health > maxHP) ? health = maxHP : health += amount;
    return;

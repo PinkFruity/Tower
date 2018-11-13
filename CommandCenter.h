@@ -6,7 +6,7 @@ class CommandCenter;
 #include <sstream>
 #include "TheGame.h"
 #include "Character.h"
-#include "ItemManager.h"
+#include "KeyLockPair.h"
 using namespace std;
 
 /* The main command parser. Runs various methods based on user inputs, which involves moving player locations,
@@ -35,12 +35,14 @@ private:
    void aliasSwap(string replacement, string toBeCut);
    void deleteWord(string);
    void addTime(int);
+   void drink(string);
    void drop(string item);
    void examine(string item);
    void go(string direction);
    void help();
    void lock(string);
    void look();
+   void sleep();
    void stats();
    void take(string item);
    void unlock(string);

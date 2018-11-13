@@ -21,6 +21,7 @@ public:
    void addItem(Item*);
    Item* findItem(string);
    Item* removeItem(string);
+   //void getAllItems();
    //void removeItem(string);
    void displayInventory();
    void addHealth(int);

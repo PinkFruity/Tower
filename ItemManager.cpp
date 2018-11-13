@@ -2,21 +2,73 @@
 
 ItemManager::ItemManager(TheGame* game) {
    bigBoss = game;
-   /* This is where all the items are spawned */
-   addItem("red_orb");
-   setDescription("red_orb", "Looks like it would be a great place marker.");
-   addItem("blue_orb");
-   setDescription("blue_orb", "Looks like it would be a great place marker.");
-   addItem("green_orb");
-   setDescription("green_orb", "Looks like it would be a great place marker.");
-   addItem("yellow_orb");
-   setDescription("yellow_orb", "Looks like it would be a great place marker.");
-   addItem("purple_orb");
-   setDescription("purple_orb", "Looks like it would be a great place marker.");
-   addItem("ice_key");
-   addItem("home_door");
 
-   /* This is where item relationships are linked, e.g., key/locks */
+   /* This is where all the items are spawned */
+   addItem("door");
+   addItem("leaflet");
+
+   addItem("flag 1");
+   addItem("flag 2");
+   addItem("flag 3");
+   addItem("flag 4");
+   addItem("flag 5");
+   addItem("potion 1");
+   addItem("potion 2");
+   addItem("potion 3");
+   addItem("ice key");
+   addItem("note");
+
+   /* Item descriptions */
+   setDescriptions("flag 1",
+      "There is a flag with a '1' on the floor (flag 1).",
+      "Looks like it would be a great place marker.");
+   setDescriptions("flag 2",
+      "There is a flag with a '2' on the floor (flag 2).",
+      "Looks like it would be a great place marker.");
+   setDescriptions("flag 3",
+      "There is a flag with a '3' on the floor (flag 3).",
+      "Looks like it would be a great place marker.");
+   setDescriptions("flag 4",
+      "There is a flag with a '4' on the floor (flag 4).",
+      "Looks like it would be a great place marker.");
+   setDescriptions("flag 5",
+      "There is a flag with a '5' on the floor (flag 5).",
+      "Looks like it would be a great place marker.");
+   
+   setDescriptions("ice key",
+      "A key on the ground glows with a harsh white light that doesn't seem to match the room around it (ice key).",
+      "An ancient-looking key. It's ice-cold to the touch, and something tells you it isn't meant to be held.");
+   setDescriptions("note",
+      "A note lays on the floor (note)",
+      "Careful - it has a bite.");
+   setDescriptions("potion 1",
+      "A small bottle lies on the floor (potion 1).",
+      "A minor potion. Drink to restore 20 HP.");
+   setDescriptions("potion 2",
+      "A small bottle lies on the floor (potion 2).",
+      "A minor potion. Drink to restore 20 HP.");
+   setDescriptions("potion 3",
+      "A small bottle lies on the floor (potion 3).",
+      "A medium-sized potion. Drink to restore 50 HP.");
+
+   setDescriptions("leaflet",
+      "A small leaflet lays in the middle of the room.",
+      "To the adventurer who wishes to traverse the waters above ...\n"
+      "Beware.\n"
+      "Many people have attempted to cross, and many people have died. If you do not wish to join their ranks, I offer some (often ignored) advice:\n"
+      "1. You are given five flags. They are inherently useless. I have been told, however, that they float in water; "
+      "and, when DROPPED, they have a remarkable ability to resist any current. They may help you keep your bearings. "
+      "(Items remain in the same room they're dropped.)\n"
+      "2. You may feel inclined to make a map. Be wary, though, that many currents are one-directional--and a current that begins "
+      "north will not always remain so.\n"
+      "3. Save your potions. You won't get more.\n"
+      "4. Check \"stats\" often.\n"
+      "And remember:\n"
+      "This dungeon is designed to kill you.\n"
+      "P.S.--Typing \"n\" instead of \"go north\" can save a lot of time, as can \"get all\" instead of individual items.\n");
+   setDescriptions("door",
+      "A silver door lies to the north of the room (door).",
+      "It bars the way out. A silver-ringed keyhole lies just above the handle.");
 }
 
 void ItemManager::addItem(string itemName) {
@@ -27,14 +79,19 @@ void ItemManager::addItem(string itemName) {
    return;
 }
 
-void ItemManager::setDescription(string itemName, string description) {
+void ItemManager::setDescriptions(string itemName, string dropped, string examine) {
    Item* item = nullptr;
    item = findItem(itemName);
    if (item) {
-      item->setDescription(description);
+      item->setDescriptions(dropped, examine);
    }
    else
       cout << "Tried to set description to an item that doesn't exist." << endl;
+   return;
+}
+
+void ItemManager::setDescriptions(string itemName, string input) {
+   setDescriptions(itemName, input, input);
    return;
 }
 

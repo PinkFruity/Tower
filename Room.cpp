@@ -91,10 +91,19 @@ Item* Room::removeItem(string toBeRemoved) {
    return returnItem;
 }
 
+void Room::getAllItems(Character* mc) {
+   while (inventory.size()) {
+      mc->addItem(inventory[0]);
+      inventory.erase(inventory.begin());
+   }
+   return;
+}
+
 void Room::displayInventory() {
-   /*for (int i = 0; i < inventory.size(); i++) { // XXX: Fix the sketchy item display?
-      cout << inventory[i]->get
-   }*/
+   for (int i = 0; i < inventory.size(); i++) { // XXX: Fix the sketchy item display?
+      cout << inventory[i]->getDroppedDescription() << endl;
+   }
+   /*
    if (inventory.size()) {
       std::cout << "There is a ";
       for (int i = 0; i + 2 < inventory.size(); i++) {
@@ -106,7 +115,7 @@ void Room::displayInventory() {
          std::cout << inventory[inventory.size() - 2]->getName() << " and a " << inventory[inventory.size() - 1]->getName();
       }
       std::cout << " on the floor." << std::endl;
-   }
+   }*/
    return;
 }
 

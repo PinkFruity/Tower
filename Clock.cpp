@@ -12,15 +12,15 @@ void Clock::addTime(int toAdd) {
    timeChange = ((minutes + toAdd) / 60) - (minutes / 60);
    if (timeChange) {
       cout << "You hear a bell toll in the distance ..." << endl;
-      cout << "-10 HEALTH" << endl;
-      mainCharacter->addHealth(-10);
+      cout << "-15 HEALTH" << endl;
+      mainCharacter->addHealth(-15);
    }
-   Item* foundItem = mainCharacter->findItem("ice_key");
+   Item* foundItem = mainCharacter->findItem("ice key");
    if (foundItem) {
-      timeChange = ((timeHeldIceKey + toAdd) / 5) - (timeHeldIceKey / 5);
+      timeChange = ((timeHeldIceKey + toAdd) / 3) - (timeHeldIceKey / 3);
       if (timeChange) {
-         cout << "The key chills you." << endl;
-         cout << "-" << timeChange * 2 << " HEALTH" << endl;
+         //cout << "The key chills you." << endl;
+         //cout << "-" << timeChange * 2 << " HEALTH" << endl;
          mainCharacter->addHealth(-(timeChange * 2));
       }
    }

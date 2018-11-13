@@ -8,7 +8,9 @@ RoomManager::RoomManager(TheGame* game) {
    addRoom("home");
    setDescriptions("home",
       "HOME",
-      "Long description TBD. Suffice to say, there's a dungeon south and a door north. (Please don't pick up the home_door.)"
+      "You find yourself in a small room. Little catches your attention aside from a BED in the corner, a door to the NORTH, "
+      "and a ladder that leads UP to an opening in the ceiling. (I happen to enjoy immense frustration and pain, so I don't mind "
+      "ignoring the leaflet on the ground. You might want to choose differently, though.)"
    );
    addRoom("end");
    setDescriptions("end", "Congratulations! You win.\n");
@@ -99,10 +101,7 @@ RoomManager::RoomManager(TheGame* game) {
    setDescriptions("maze25", "The water pushes and pulls.");
    setDescriptions("maze26", "The water pushes and pulls.");
    setDescriptions("maze27", "The water pushes and pulls.");
-   setDescriptions("maze28",
-      "SMALL ISLAND"
-      "You stumble across a small island. There's nothing to note here beyond a worn-down sign with indecipherable text."
-   );
+   setDescriptions("maze28", "The water pushes and pulls.");
    setDescriptions("maze29", "The water pushes and pulls.");
    setDescriptions("maze30", "The water pushes and pulls.");
    setDescriptions("maze31", "The water pushes and pulls.");
@@ -137,26 +136,26 @@ RoomManager::RoomManager(TheGame* game) {
       "You step onto an island, the doorway to home nothing but a hole in the ground. The room is dimly lit. Water surrounds you, and even "
       "in the semi-darkness, you can see currents that move in strange, unnatural patterns--swift currents. Something tells you "
       "that, were you to step into them, you would be forced to follow whichever direction they led at their mercy.\n"
-      "Across the waters to the north lies another island, this one with a pedestal that holds a silver-looking key."
+      "Across the waters to the north lies another island, this one with a pedestal that holds a silver-looking key.\n"
    );
    setDescriptions("night_maze_pedestal",
       "NIGHT DUNGEON - WATER MAZE PEDESTAL",
-      "Definitely will have a long description. But, uh, it's an island. With a pedestal. And a key. Yaaaaay."
+      "You come across a larger island, barren of everything except for a single, silver-lined pedestal."
    );
 
    /* Linking of rooms */
    addPath("home", "north", "end");
-   addPath("end", "south", "home");
 
    // Night maze dungeon
-   addPath("home", "south", "night_maze_landing");
+   addPath("home", "up", "night_maze_landing");
    addPath("night_maze_landing", "north", "maze1");
    addPath("maze1", "south", "night_maze_landing");
-   addPath("maze1", "west", "maze2");
+   addPath("maze1", "west", "maze8");
    addPath("maze1", "north", "maze39");
    addPath("maze2", "northwest", "maze3");
-   addPath("maze3", "south", "maze4");
-   addPath("maze3", "north", "maze30");
+   addPath("maze2", "east", "maze1");
+   addPath("maze3", "north", "maze7");
+   addPath("maze3", "east", "maze1");
    addPath("maze4", "north", "maze5");
    addPath("maze4", "south", "maze40");
    addPath("maze5", "west", "maze6");
@@ -164,12 +163,13 @@ RoomManager::RoomManager(TheGame* game) {
    addPath("maze5", "south", "maze4");
    addPath("maze6", "south", "maze7");
    addPath("maze6", "east", "maze41");
-   addPath("maze6", "west", "maze56");
    addPath("maze6", "southeast", "maze29");
    addPath("maze7", "west", "maze8");
    addPath("maze7", "southwest", "maze3");
-   addPath("maze8", "east", "maze9");
-   addPath("maze9", "west", "maze10");
+   addPath("maze8", "north", "maze9");
+   addPath("maze8", "east", "maze7");
+   addPath("maze9", "east", "maze28");
+   addPath("maze9", "north", "night_maze_pedestal");
    addPath("maze10", "north", "maze11");
    addPath("maze10", "west", "maze28");
    addPath("maze10", "south", "maze28");
@@ -191,10 +191,7 @@ RoomManager::RoomManager(TheGame* game) {
    addPath("maze18", "northwest", "maze19");
    addPath("maze19", "northwest", "maze20");
    addPath("maze20", "northwest", "night_maze_pedestal");
-   addPath("night_maze_pedestal", "north", "maze21");
-   addPath("night_maze_pedestal", "east", "maze20");
-   addPath("night_maze_pedestal", "south", "maze20");
-   addPath("night_maze_pedestal", "west", "maze54");
+   addPath("night_maze_pedestal", "south", "maze6");
    addPath("maze21", "northwest", "maze22");
    addPath("maze21", "north", "maze55");
    addPath("maze21", "east", "maze52");
@@ -213,10 +210,8 @@ RoomManager::RoomManager(TheGame* game) {
    addPath("maze29", "south", "maze30");
    addPath("maze29", "north", "maze41");
    addPath("maze30", "east", "maze31");
-   addPath("maze30", "southwest", "maze40");
-   addPath("maze31", "north", "maze32");
+   addPath("maze30", "south", "maze1");
    addPath("maze31", "northwest", "maze29");
-   addPath("maze31", "south", "maze2");
    addPath("maze32", "east", "maze33");
    addPath("maze32", "northwest", "maze41");
    addPath("maze33", "south", "maze34");
@@ -233,11 +228,9 @@ RoomManager::RoomManager(TheGame* game) {
    addPath("maze38", "east", "maze37");
    addPath("maze38", "west", "maze35");
    addPath("maze39", "northwest", "maze31");
-   addPath("maze39", "north", "maze32");
    addPath("maze40", "south", "maze40");
    addPath("maze40", "east", "maze2");
    addPath("maze41", "northwest", "maze28");
-   addPath("maze41", "southeast", "maze32");
    addPath("maze42", "north", "maze43");
    addPath("maze43", "south", "maze16");
    addPath("maze44", "west", "maze16");

@@ -13,22 +13,25 @@ TheGame::TheGame() {
    clock->setMainCharacter(mainCharacter);
 
    /* Adding items to rooms */
-   addItemToRoom("home", "home_door");
+   addItemToRoom("home", "door");
+   addItemToRoom("home", "leaflet");
 
    // Adding items to night maze dungeon
-   addItemToRoom("night_maze_landing", "red_orb");
-   addItemToRoom("night_maze_landing", "blue_orb");
-   addItemToRoom("night_maze_landing", "green_orb");
-   addItemToRoom("night_maze_landing", "yellow_orb");
-   addItemToRoom("night_maze_landing", "purple_orb");
-   addItemToRoom("night_maze_pedestal", "ice_key");
-
+   addItemToRoom("night_maze_landing", "potion 1");
+   addItemToRoom("night_maze_landing", "flag 1");
+   addItemToRoom("night_maze_landing", "flag 2");
+   addItemToRoom("night_maze_landing", "flag 3");
+   addItemToRoom("night_maze_landing", "flag 4");
+   addItemToRoom("night_maze_landing", "flag 5");
+   addItemToRoom("maze6", "potion 2");
+   addItemToRoom("night_maze_pedestal", "ice key");
+   addItemToRoom("night_maze_pedestal", "potion 3");
 
    /* Adding locks to paths */
-   addLockToPath("home", "north", "ice_key", "home_door", "The door is locked with a silver-ringed keyhole.", "You hear a soft click.");
+   addLockToPath("home", "north", "ice key", "door", "The door is locked with a silver-ringed keyhole.", "You hear a soft click.");
 
    /* Printing room description */
-   cout << "***Try typing \"help\" to get you started." << endl << endl << endl;
+   cout << "***Try typing \"help\" to get you started." << endl << endl;
    commands->doCommand("look");
 }
 Character* TheGame::getMainCharacter() {

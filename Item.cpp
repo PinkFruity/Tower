@@ -6,17 +6,18 @@ string Item::getName() {
    return name;
 }
 
-void Item::setDescription(string input) {
-   description = input;
+void Item::setDescriptions(string dropped, string examine) {
+   droppedDescription = dropped;
+   description = examine;
 }
 
-/*void Item::setInRoomDescription(string input) {
-   inRoomDescription = input;
+void Item::setDescriptions(string input) {
+   setDescriptions(input, input);
 }
 
-string Item::getInRoomDescription() {
-   return inRoomDescription;
-}*/
+string Item::getDroppedDescription() {
+   return droppedDescription;
+}
 
 std::string Item::getDescription() {
    return description;

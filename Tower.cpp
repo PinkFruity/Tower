@@ -14,15 +14,8 @@ int main() {
    return 0;
 }
 
-/* TO IMPLEMENT LIST:
-   1. A time system
-      a. every command costing time (minimum of 1 minute)
-      b. events happening at certain time intervals (like hourly bells or life-drains from keys)
-   2. Character health
-*/
-
 /* TO POLISH LIST:
- * 1. When you enter a room, each item's short description is displayed (as opposed to the current, "There is a x, y, and z on the floor").
+ * 1. COMPLETE - When you enter a room, each item's short description is displayed (as opposed to the current, "There is a x, y, and z on the floor").
       a. items would need a long and short description (currently only have a single description)
    2. Make certain items unholdable (like doors or other heavy things).
       a. character would need a carrying capacity variable
@@ -36,6 +29,6 @@ int main() {
    5. COMPLETE - When you enter a room, possible directions should be displayed. (Yes, it would mean duplicating it in the room description, but it
       should make things clear for the user. I hope.)
    6. Command examine should fail when the user doesn't input anything afterwards, i.e., "examine" is their only input.
-   7. Because the maze is so difficult, maybe some signposts/encouragement/items/easter eggs should be placed in rooms the way Pokemon does.
+   7. COMPLETE(?) - Because the maze is so difficult, maybe some signposts/encouragement/items/easter eggs should be placed in rooms the way Pokemon does.
       Makes it less frustrating to be stuck in some areas?
 */

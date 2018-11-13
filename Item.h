@@ -15,8 +15,10 @@ class Item {
 public:
    Item(string n);
    string getName();
-   void setDescription(string);
+   void setDescriptions(string, string);
+   void setDescriptions(string);
    string getDescription();
+   string getDroppedDescription();
    //void setInRoomDescription(string);
    //string getInRoomDescription();
    void setStatus(string);
@@ -29,7 +31,7 @@ public:
    void removeItem(Item*);
 private:
    string name;
-   //string inRoomDescription;
+   string droppedDescription;
    string description;
    string status;
    int burden;

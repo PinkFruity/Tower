@@ -5,6 +5,7 @@ class Room;
 #include <string>
 #include "Path.h"
 #include "Item.h"
+#include "Character.h"
 using namespace std;
 
 /* Holds all the data for a single room.
@@ -31,6 +32,7 @@ public:
    void addItem(Item*);
    Item* findItem(string item);
    Item* removeItem(string);
+   void getAllItems(Character*);
    void displayInventory();
    void displayPaths();
 private:

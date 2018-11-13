@@ -6,26 +6,16 @@ struct KeyLockPair;
 #include "Item.h"
 #include "TheGame.h"
 #include "Path.h"
+#include "KeyLockPair.h"
 using namespace std;
-
-struct KeyLockPair {
-   KeyLockPair(Path* p, Item* k, Item* l, string locked, string unlocked) : path(p), key(k), lock(l), lockMessage(locked), unlockMessage(unlocked) {
-      lock->setStatus("locked");
-      path->setBarrier(lockMessage);
-   };
-   Item* key;
-   Item* lock;
-   Path* path;
-   string lockMessage;
-   string unlockMessage;
-};
 
 /* Spawns all items, adds descriptions, etc. and stores them in a vector. */
 class ItemManager {
 public:
    ItemManager(TheGame*);
    void addItem(string itemName);
-   void setDescription(string itemName, string description);
+   void setDescriptions(string itemName, string dropped, string description);
+   void setDescriptions(string itemName, string description);
    Item* findItem(string itemName);
    void addKeyLockPair(Path* pathToLock, Item* key, Item* lock, string lockMessage, string unlockMessage);
    bool isKeyLockPair(string key, string lock);
